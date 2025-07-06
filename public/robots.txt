@@ -1,16 +1,13 @@
-User-agent: Googlebot
-Allow: /
-
-User-agent: Bingbot
-Allow: /
-
-User-agent: Twitterbot
-Allow: /
-
-User-agent: facebookexternalhit
-Allow: /
-
 User-agent: *
 Allow: /
 
-Sitemap: https://sai-likhith-portfolio.vercel.app/sitemap.xml
+# Sitemap
+Sitemap: https://sailikhithgb.vercel.app/sitemap.xml
+
+# Important pages for SEO
+Allow: /
+Allow: /about
+Allow: /projects
+Allow: /blog
+Allow: /press
+Allow: /contact
