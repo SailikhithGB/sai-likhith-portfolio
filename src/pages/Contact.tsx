@@ -66,7 +66,7 @@ const Contact = () => {
     description: 'Check out my code repositories'
   }, {
     name: 'LinkedIn',
-    url: 'https://www.linkedin.com/in/sai-likhith-g-b-180b332a4',
+    url: 'https://www.linkedin.com/in/sai-likhith-gb-180b332a4',
     icon: Linkedin,
     color: 'hover:text-cyber-green',
     description: 'Connect professionally'

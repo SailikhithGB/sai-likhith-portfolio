@@ -106,7 +106,7 @@ const HeroSection = () => {
             </Button>
             
             <Button asChild variant="outline" size="lg" className="border-cyber-green text-cyber-green hover:bg-cyber-green hover:text-black transition-all duration-300 rounded-full shadow-lg hover:shadow-cyber-green/50 hover:border-cyber-green/50">
-              <a href="https://www.linkedin.com/in/sai-likhith-g-b-180b332a4" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2">
+              <a href="https://www.linkedin.com/in/sai-likhith-gb-180b332a4" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2">
                 <Linkedin size={20} />
                 LinkedIn
               </a>
