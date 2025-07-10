@@ -3,7 +3,7 @@ import { Github, Linkedin, ExternalLink } from 'lucide-react';
 
 const HeroSection = () => {
   return (
-    <section className="min-h-screen flex items-center justify-center relative overflow-hidden hero-bg" style={{ margin: '30px' }}>
+    <section className="min-h-screen flex items-center justify-center relative overflow-hidden hero-bg" style={{ margin: '50px' }}>
       {/* Floating background elements */}
       <div className="floating-icon top-20 left-10 text-6xl">⚛️</div>
       <div className="floating-icon top-40 right-20 text-4xl" style={{
