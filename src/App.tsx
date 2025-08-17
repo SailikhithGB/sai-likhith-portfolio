@@ -10,6 +10,7 @@ import Projects from "./pages/Projects";
 import Blog from "./pages/Blog";
 import Press from "./pages/Press";
 import Contact from "./pages/Contact";
+import AIAssistantPage from "./pages/AIAssistantPage";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -27,6 +28,7 @@ const App = () => (
           <Route path="/blog" element={<Blog />} />
           <Route path="/press" element={<Press />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/ai-assistant" element={<AIAssistantPage />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
