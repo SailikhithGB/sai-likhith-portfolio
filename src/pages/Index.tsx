@@ -2,6 +2,7 @@
 import Navigation from '@/components/Navigation';
 import HeroSection from '@/components/HeroSection';
 import { Button } from '@/components/ui/button';
+import { Link } from "react-router-dom";
 import { Calendar, Clock, ArrowRight, Star, Code, Rocket, Lightbulb } from 'lucide-react';
 
 const Index = () => {
