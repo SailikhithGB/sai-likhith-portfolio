@@ -1,160 +1,142 @@
 
+import { useState, useRef, useEffect } from 'react';
 import Navigation from '@/components/Navigation';
-import HeroSection from '@/components/HeroSection';
+import AIChatInterface from '@/components/AIChatInterface';
+import VoiceControl from '@/components/VoiceControl';
+import AIStatus from '@/components/AIStatus';
 import { Button } from '@/components/ui/button';
-import { Calendar, Clock, ArrowRight, Star, Code, Rocket, Lightbulb } from 'lucide-react';
+import { Mic, MicOff, Settings, Brain, Zap, MessageCircle } from 'lucide-react';
 
 const Index = () => {
-  return (
-    <div className="min-h-screen bg-background">
-      <Navigation />
-      <HeroSection />
-      
-      {/* What Makes Me Stand Out Section */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-5xl font-bold mb-6">
-              What Makes Me <span className="gradient-text">Stand Out</span>
-            </h2>
-          </div>
-          
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6 text-center hover:bg-white/10 transition-all duration-300 hover:scale-105">
-              <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-gradient-to-r from-cyber-blue to-cyber-green flex items-center justify-center">
-                <Star className="w-8 h-8 text-black" />
-              </div>
-              <h3 className="text-xl font-bold mb-3 text-cyber-blue">Started coding at 13</h3>
-              <p className="text-gray-300 text-sm">Early passion for programming with Python as my first language</p>
-            </div>
-            
-            <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6 text-center hover:bg-white/10 transition-all duration-300 hover:scale-105">
-              <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-gradient-to-r from-cyber-green to-cyber-purple flex items-center justify-center">
-                <Code className="w-8 h-8 text-black" />
-              </div>
-              <h3 className="text-xl font-bold mb-3 text-cyber-green">Building ShopVerse</h3>
-              <p className="text-gray-300 text-sm">A full MERN-stack shopping platform with modern features</p>
-            </div>
-            
-            <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6 text-center hover:bg-white/10 transition-all duration-300 hover:scale-105">
-              <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-gradient-to-r from-cyber-purple to-cyber-blue flex items-center justify-center">
-                <Lightbulb className="w-8 h-8 text-black" />
-              </div>
-              <h3 className="text-xl font-bold mb-3 text-cyber-purple">Passionate about AI, APIs, and web apps</h3>
-              <p className="text-gray-300 text-sm">Exploring cutting-edge technologies and building innovative solutions</p>
-            </div>
-            
-            <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6 text-center hover:bg-white/10 transition-all duration-300 hover:scale-105">
-              <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-gradient-to-r from-cyber-blue to-cyber-purple flex items-center justify-center">
-                <Rocket className="w-8 h-8 text-black" />
-              </div>
-              <h3 className="text-xl font-bold mb-3 text-gradient-text">Mission: India's youngest startup founder</h3>
-              <p className="text-gray-300 text-sm">Building toward launching my own tech startup and making an impact</p>
-            </div>
-          </div>
-        </div>
-      </section>
+  const [isListening, setIsListening] = useState(false);
+  const [isAIActive, setIsAIActive] = useState(true);
+  const [currentMode, setCurrentMode] = useState('chat'); // chat, voice, settings
 
-      {/* Blog Preview Section */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white/5">
+  return (
+    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900">
+      <Navigation />
+      
+      {/* AI Assistant Main Interface */}
+      <div className="container mx-auto px-4 py-8">
         <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-5xl font-bold mb-6">
-              Latest from My <span className="gradient-text">Blog</span>
-            </h2>
-            <p className="text-xl text-gray-400 max-w-3xl mx-auto">
-              Sharing my coding journey, insights, and lessons learned
+          {/* Header Section */}
+          <div className="text-center mb-8">
+            <div className="flex items-center justify-center gap-3 mb-4">
+              <div className="w-12 h-12 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full flex items-center justify-center">
+                <Brain className="w-6 h-6 text-white" />
+              </div>
+              <h1 className="text-4xl md:text-6xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
+                AI Assistant
+              </h1>
+            </div>
+            <p className="text-xl text-gray-300 max-w-2xl mx-auto">
+              Your intelligent companion for productivity, creativity, and assistance
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
-            {/* Featured Article */}
-            <article className="md:col-span-2 lg:col-span-2 bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl overflow-hidden hover:bg-white/10 transition-all duration-300 hover:scale-105">
-              <div className="p-8">
-                <div className="flex items-center gap-2 mb-4">
-                  <span className="bg-cyber-blue/20 border border-cyber-blue/30 px-3 py-1 rounded-full text-xs font-medium text-cyber-blue">
-                    Featured
-                  </span>
-                  <span className="bg-cyber-green/20 border border-cyber-green/30 px-3 py-1 rounded-full text-xs font-medium text-cyber-green">
-                    Origin Story
-                  </span>
-                </div>
-                
-                <h3 className="text-2xl md:text-3xl font-bold mb-4 text-white">
-                  How I Started Coding at 13
+          {/* AI Status Bar */}
+          <AIStatus isActive={isAIActive} />
+
+          {/* Main Interface Grid */}
+          <div className="grid lg:grid-cols-3 gap-6 mt-8">
+            {/* Chat Interface - Takes 2/3 of the space */}
+            <div className="lg:col-span-2">
+              <AIChatInterface 
+                isActive={isAIActive}
+                isListening={isListening}
+                onVoiceToggle={() => setIsListening(!isListening)}
+              />
+            </div>
+
+            {/* Sidebar - Voice Control & Quick Actions */}
+            <div className="space-y-6">
+              {/* Voice Control Panel */}
+              <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-6">
+                <h3 className="text-lg font-semibold text-white mb-4 flex items-center gap-2">
+                  <Mic className="w-5 h-5" />
+                  Voice Control
                 </h3>
-                
-                <p className="text-gray-300 mb-6 text-lg leading-relaxed">
-                  My journey into code began with curiosity, a Python script, and a lot of late nights. 
-                  I'll share how it all started — from my first "Hello World" to building full-stack applications. 
-                  The challenges, breakthroughs, and what kept me motivated through the learning curve.
-                </p>
-                
-                <div className="flex items-center justify-between text-sm text-gray-400 mb-6">
-                  <div className="flex items-center gap-4">
-                    <div className="flex items-center gap-1">
-                      <Calendar size={14} />
-                      <span>Coming Soon</span>
-                    </div>
-                    <div className="flex items-center gap-1">
-                      <Clock size={14} />
-                      <span>8 min read</span>
-                    </div>
+                <VoiceControl 
+                  isListening={isListening}
+                  onToggleListening={() => setIsListening(!isListening)}
+                />
+              </div>
+
+              {/* Quick Actions */}
+              <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-6">
+                <h3 className="text-lg font-semibold text-white mb-4 flex items-center gap-2">
+                  <Zap className="w-5 h-5" />
+                  Quick Actions
+                </h3>
+                <div className="space-y-3">
+                  <Button 
+                    variant="outline" 
+                    className="w-full justify-start border-blue-500/30 text-blue-400 hover:bg-blue-500/20"
+                    onClick={() => {/* TODO: Implement search */}}
+                  >
+                    🔍 Web Search
+                  </Button>
+                  <Button 
+                    variant="outline" 
+                    className="w-full justify-start border-green-500/30 text-green-400 hover:bg-green-500/20"
+                    onClick={() => {/* TODO: Implement reminders */}}
+                  >
+                    ⏰ Set Reminder
+                  </Button>
+                  <Button 
+                    variant="outline" 
+                    className="w-full justify-start border-purple-500/30 text-purple-400 hover:bg-purple-500/20"
+                    onClick={() => {/* TODO: Implement system control */}}
+                  >
+                    🖥️ System Control
+                  </Button>
+                  <Button 
+                    variant="outline" 
+                    className="w-full justify-start border-orange-500/30 text-orange-400 hover:bg-orange-500/20"
+                    onClick={() => {/* TODO: Implement app launcher */}}
+                  >
+                    🚀 Launch App
+                  </Button>
+                </div>
+              </div>
+
+              {/* AI Capabilities */}
+              <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-6">
+                <h3 className="text-lg font-semibold text-white mb-4 flex items-center gap-2">
+                  <Brain className="w-5 h-5" />
+                  AI Capabilities
+                </h3>
+                <div className="space-y-2 text-sm text-gray-300">
+                  <div className="flex items-center gap-2">
+                    <div className="w-2 h-2 bg-green-500 rounded-full"></div>
+                    Natural Language Processing
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <div className="w-2 h-2 bg-green-500 rounded-full"></div>
+                    Voice Recognition & TTS
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <div className="w-2 h-2 bg-green-500 rounded-full"></div>
+                    Context Memory
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <div className="w-2 h-2 bg-green-500 rounded-full"></div>
+                    Multi-modal Responses
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <div className="w-2 h-2 bg-yellow-500 rounded-full"></div>
+                    System Integration
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <div className="w-2 h-2 bg-yellow-500 rounded-full"></div>
+                    App Automation
                   </div>
                 </div>
-                
-                <Button 
-                  disabled
-                  variant="outline" 
-                  className="w-full md:w-auto opacity-50 cursor-not-allowed border-cyber-blue/30 text-cyber-blue"
-                >
-                  Read Full Story (Coming Soon)
-                  <ArrowRight size={16} className="ml-2" />
-                </Button>
               </div>
-            </article>
-
-            {/* Upcoming Articles */}
-            <div className="space-y-6">
-              <article className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6 hover:bg-white/10 transition-all duration-300">
-                <div className="flex items-center gap-2 mb-3">
-                  <span className="bg-cyber-purple/20 border border-cyber-purple/30 px-2 py-1 rounded-full text-xs font-medium text-cyber-purple">
-                    Upcoming
-                  </span>
-                </div>
-                <h4 className="text-lg font-bold mb-2 text-white">
-                  Building ShopVerse: MERN Stack Journey
-                </h4>
-                <p className="text-gray-400 text-sm mb-3">
-                  The technical decisions, challenges, and learnings from building a modern e-commerce platform.
-                </p>
-                <div className="text-xs text-gray-500">Coming Soon • 10 min read</div>
-              </article>
-
-              <article className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6 hover:bg-white/10 transition-all duration-300">
-                <div className="flex items-center gap-2 mb-3">
-                  <span className="bg-cyber-green/20 border border-cyber-green/30 px-2 py-1 rounded-full text-xs font-medium text-cyber-green">
-                    Upcoming
-                  </span>
-                </div>
-                <h4 className="text-lg font-bold mb-2 text-white">
-                  Teen Developer's Guide to APIs
-                </h4>
-                <p className="text-gray-400 text-sm mb-3">
-                  Everything I learned about working with APIs, from REST to GraphQL and beyond.
-                </p>
-                <div className="text-xs text-gray-500">Coming Soon • 6 min read</div>
-              </article>
             </div>
           </div>
-
-          <div className="text-center">
-            <Button asChild className="bg-gradient-to-r from-cyber-blue to-cyber-green hover:from-cyber-green hover:to-cyber-blue text-black font-semibold px-8 py-3 rounded-full transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-cyber-blue/50">
-              <a href="/blog">View All Articles</a>
-            </Button>
-          </div>
         </div>
-      </section>
+      </div>
     </div>
   );
 };
