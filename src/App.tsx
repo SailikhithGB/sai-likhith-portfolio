@@ -11,6 +11,8 @@ import Blog from "./pages/Blog";
 import Press from "./pages/Press";
 import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
+import { FidelityProvider } from "./context/FidelityContext";
+import { FeatureToggles } from "./components/FeatureToggles";
 
 const queryClient = new QueryClient();
 
@@ -19,17 +21,20 @@ const App = () => (
     <TooltipProvider>
       <Toaster />
       <Sonner />
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Index />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/projects" element={<Projects />} />
-          <Route path="/blog" element={<Blog />} />
-          <Route path="/press" element={<Press />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-      </BrowserRouter>
+      <FidelityProvider>
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<Index />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/projects" element={<Projects />} />
+            <Route path="/blog" element={<Blog />} />
+            <Route path="/press" element={<Press />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="/features" element={<FeatureToggles />} />
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </BrowserRouter>
+      </FidelityProvider>
     </TooltipProvider>
   </QueryClientProvider>
 );
