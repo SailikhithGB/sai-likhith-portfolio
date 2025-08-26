@@ -11,6 +11,7 @@ import Blog from "./pages/Blog";
 import Press from "./pages/Press";
 import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
+import QuantumDemo from "./pages/QuantumDemo";
 
 const queryClient = new QueryClient();
 
@@ -27,6 +28,7 @@ const App = () => (
           <Route path="/blog" element={<Blog />} />
           <Route path="/press" element={<Press />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/quantum" element={<QuantumDemo />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
