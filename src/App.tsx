@@ -11,6 +11,10 @@ import Blog from "./pages/Blog";
 import Press from "./pages/Press";
 import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
+import Chat from "./pages/Chat";
+import HologramComposer from "./pages/HologramComposer";
+import ImmersiveXR from "./pages/ImmersiveXR";
+import Settings from "./pages/Settings";
 
 const queryClient = new QueryClient();
 
@@ -27,6 +31,10 @@ const App = () => (
           <Route path="/blog" element={<Blog />} />
           <Route path="/press" element={<Press />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/chat" element={<Chat />} />
+          <Route path="/hologram" element={<HologramComposer />} />
+          <Route path="/xr" element={<ImmersiveXR />} />
+          <Route path="/settings" element={<Settings />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
