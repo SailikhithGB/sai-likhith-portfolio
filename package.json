@@ -1,14 +1,16 @@
 {
-  "name": "vite_react_shadcn_ts",
+  "name": "nexus_communication_platform",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
     "build:dev": "vite build --mode development",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "server": "node server/index.js",
+    "dev:server": "nodemon server/index.js"
   },
   "dependencies": {
     "@emailjs/browser": "^4.4.1",
@@ -66,7 +68,30 @@
     "tailwindcss-animate": "^1.0.7",
     "typewriter-effect": "^2.22.0",
     "vaul": "^0.9.3",
-    "zod": "^3.23.8"
+    "zod": "^3.23.8",
+    "@tensorflow/tfjs": "^4.15.0",
+    "socket.io-client": "^4.7.4",
+    "simple-peer": "^9.11.1",
+    "node-forge": "^1.3.1",
+    "crypto-js": "^4.2.0",
+    "peerjs": "^1.5.2",
+    "three": "^0.159.0",
+    "@react-three/fiber": "^8.15.12",
+    "@react-three/drei": "^9.92.7",
+    "webrtc-adapter": "^8.2.3",
+    "idb": "^7.1.1",
+    "workbox-window": "^7.0.0",
+    "comlink": "^4.4.1",
+    "@emotion/react": "^11.11.1",
+    "@emotion/styled": "^11.11.0",
+    "@microsoft/signalr": "^8.0.0",
+    "web3": "^4.4.0",
+    "ethers": "^6.9.0",
+    "jimp": "^0.22.10",
+    "js-sha256": "^0.10.1",
+    "elliptic": "^6.5.4",
+    "react-webcam": "^7.2.0",
+    "react-speech-recognition": "^3.10.0"
   },
   "devDependencies": {
     "@eslint/js": "^9.9.0",
@@ -85,6 +110,11 @@
     "tailwindcss": "^3.4.11",
     "typescript": "^5.5.3",
     "typescript-eslint": "^8.0.1",
-    "vite": "^5.4.1"
+    "vite": "^5.4.1",
+    "nodemon": "^3.0.2",
+    "express": "^4.18.2",
+    "socket.io": "^4.7.4",
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1"
   }
 }
